@@ -1,5 +1,8 @@
 public static class HttpHelper
 {
+	/// <summary>
+	/// This class is like KeyValuePair, parameter value will be modified based on the assigned value of ToValue
+	/// </summary>
 	public class UrlParameter
 	{
 		private string _from;
@@ -9,6 +12,7 @@ public static class HttpHelper
 			get => _from;
 			set
 			{
+				//prevent stupid null values
 				_from = value ?? string.Empty;
 			}
 		}
@@ -17,14 +21,21 @@ public static class HttpHelper
 			get => _to;
 			set
 			{
+				//prevent stupid null values
 				_to = value ?? string.Empty;
 			}
 		}
 	}
 
+	/// <summary>
+	/// Manipulate multiple paramater key by grouping
+	/// </summary>
 	public class UrlParameterGroup
 	{
 		private string _parameterName;
+		/// <summary>
+		/// The Parameter Name - the value of this parameter will be based on the Paramaters
+		/// </summary>
 		public string ParameterName
 		{
 			get => _parameterName;
@@ -33,6 +44,9 @@ public static class HttpHelper
 				_parameterName = value ?? string.Empty;
 			}
 		}
+		/// <summary>
+		/// The possible values of the ParameterName
+		/// </summary>
 		public List<UrlParameter> Parameters { get; set; }
 	}
 
