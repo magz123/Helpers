@@ -41,6 +41,7 @@ public static class HttpHelper
 			get => _parameterName;
 			set
 			{
+				//prevent stupid null values
 				_parameterName = value ?? string.Empty;
 			}
 		}
